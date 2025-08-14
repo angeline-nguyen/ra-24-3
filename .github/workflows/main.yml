@@ -6,6 +6,8 @@ jobs:
     steps: 
       - name: Check out repository code
         uses: actions/checkout@v3
+      - name: Install jest and supertest
+        run: npm install jest supertest --save-dev
       - name: Install dependencies
         run: npm install
       - name: Run test
