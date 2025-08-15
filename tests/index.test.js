@@ -9,7 +9,5 @@ describe('GET /', () => {
 });
 
 afterAll(()=>{
-    imports.server.close(()=>{
-        console.log("Server closed")
-    });
+    imports.server.close();
 });
