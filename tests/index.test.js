@@ -1,17 +1,15 @@
 const request = require('supertest');
-const app = require('../index.js');
-
-beforeAll(()=>{
-    server = app.listen(5000);
-});
+const imports = require('../index.js');
 
 describe('GET /', () => {
     it('should return Hello World response for / route', async () => {
-        const res = await request(app).get('/');
+        const res = await request(imports.app).get('/');
         expect(res.text).toEqual('Hello World!');
     });
 });
 
 afterAll(()=>{
-    server.close();
+    imports.server.close(()=>{
+        console.log("Server closed")
+    });
 });
